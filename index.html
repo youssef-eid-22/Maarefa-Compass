@@ -1,0 +1,2972 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="بوصلة معرفة - منصة توجيهية تمسك بيدك من الصفر وحتى الاحتراف عبر مسارات واضحة ومصادر موثوقة" />
+<title>بوصلة معرفة | تعلّم بوضوح، وتقدم بثقة</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<style>
+/* =========================================
+   CSS Variables & Reset
+========================================= */
+:root {
+  --primary: #1E3A8A;
+  --primary-dark: #172554;
+  --secondary: #3B82F6;
+  --accent: #F97316;
+  --accent-dark: #EA580C;
+  --bg: #F8FAFC;
+  --card: #FFFFFF;
+  --text: #0F172A;
+  --text-sec: #64748B;
+  --border: #E2E8F0;
+  --border-light: #F1F5F9;
+  --success: #10B981;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.12);
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: 'Cairo', 'Tajawal', system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input { font-family: inherit; }
+ul { list-style: none; }
+
+/* Focus states for accessibility */
+:focus-visible {
+  outline: 3px solid var(--secondary);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* =========================================
+   Layout Utilities
+========================================= */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+}
+
+.section-subtitle {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--text-sec);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* =========================================
+   Buttons
+========================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: var(--transition);
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.35);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
+}
+
+.btn-accent:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  background: rgba(30, 58, 138, 0.04);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 10px;
+}
+
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 16px;
+}
+
+/* =========================================
+   Navbar
+========================================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  box-shadow: var(--shadow);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  gap: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-sec);
+  border-radius: 10px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);
+  background: rgba(30, 58, 138, 0.06);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-actions .btn-outline {
+  padding: 10px 18px;
+  font-size: 14px;
+}
+
+.nav-actions .btn-accent {
+  padding: 10px 18px;
+  font-size: 14px;
+}
+
+.hamburger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 85%;
+  max-width: 360px;
+  height: 100vh;
+  background: #fff;
+  z-index: 200;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 24px;
+  box-shadow: var(--shadow-lg);
+  overflow-y: auto;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+}
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.mobile-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  border-radius: 12px;
+  transition: var(--transition);
+}
+
+.mobile-link:hover,
+.mobile-link.active {
+  background: rgba(30, 58, 138, 0.06);
+  color: var(--primary);
+}
+
+.mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  z-index: 150;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  backdrop-filter: blur(4px);
+}
+
+.menu-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================================
+   Hero Section
+========================================= */
+.hero {
+  position: relative;
+  padding: 60px 0 80px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at top right, rgba(59, 130, 246, 0.08), transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(249, 115, 22, 0.06), transparent 50%),
+    var(--bg);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(30, 58, 138, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 58, 138, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.hero-title {
+  font-size: clamp(30px, 5.5vw, 56px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-title .highlight {
+  position: relative;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: clamp(15px, 2vw, 19px);
+  color: var(--text-sec);
+  line-height: 1.9;
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+/* Hero Search */
+.hero-search {
+  display: flex;
+  gap: 10px;
+  background: #fff;
+  padding: 8px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  max-width: 620px;
+  margin: 0 auto 28px;
+  transition: var(--transition);
+}
+
+.hero-search:focus-within {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1), var(--shadow-md);
+}
+
+.search-input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+}
+
+.search-input-wrap svg {
+  color: var(--text-sec);
+  flex-shrink: 0;
+}
+
+.hero-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  background: transparent;
+  color: var(--text);
+  padding: 10px 0;
+  min-width: 0;
+}
+
+.hero-search input::placeholder {
+  color: var(--text-sec);
+}
+
+.hero-search .btn {
+  padding: 12px 22px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Hero Visual Roadmap */
+.hero-visual {
+  margin-top: 64px;
+  position: relative;
+}
+
+.visual-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.visual-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+}
+
+.journey {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  position: relative;
+  padding: 10px 0;
+}
+
+.journey::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  left: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  border-radius: 10px;
+  transform: translateY(-50%);
+  opacity: 0.25;
+}
+
+.journey-node {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 2;
+  flex: 1;
+  min-width: 0;
+}
+
+.node-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-sec);
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.journey-node.active .node-circle {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(30, 58, 138, 0.3);
+}
+
+.journey-node.current .node-circle {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.4);
+  animation: bob 2.5s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.node-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.journey-node.active .node-label { color: var(--primary); }
+.journey-node.current .node-label { color: var(--accent); }
+
+/* =========================================
+   Stats Section
+========================================= */
+.stats {
+  padding: 40px 0 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.stat-item {
+  text-align: center;
+  padding: 12px 8px;
+  border-left: 1px solid var(--border);
+}
+
+.stat-item:last-child { border-left: none; }
+
+.stat-number {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-sec);
+}
+
+/* =========================================
+   Why Us Section
+========================================= */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), rgba(59, 130, 246, 0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  margin-bottom: 18px;
+  transition: var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.feature-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.feature-desc {
+  font-size: 14px;
+  color: var(--text-sec);
+  line-height: 1.8;
+}
+
+/* =========================================
+   Categories Section
+========================================= */
+.search-filter-bar {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg);
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+  transition: var(--transition);
+}
+
+.search-field:focus-within {
+  border-color: var(--secondary);
+  background: #fff;
+}
+
+.search-field svg { color: var(--text-sec); flex-shrink: 0; }
+
+.search-field input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.filter-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.filter-select {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.filter-select:hover,
+.filter-select:focus {
+  border-color: var(--secondary);
+  outline: none;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.category-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--secondary);
+}
+
+.category-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-bottom: 16px;
+  font-size: 22px;
+}
+
+.category-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.category-desc {
+  font-size: 13.5px;
+  color: var(--text-sec);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.category-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px dashed var(--border);
+  margin-bottom: 14px;
+}
+
+.category-paths {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-sec);
+}
+
+.category-paths strong {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.category-card .btn {
+  width: 100%;
+  font-size: 13.5px;
+  padding: 10px;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  grid-column: 1 / -1;
+}
+
+.empty-state svg {
+  color: var(--text-sec);
+  margin-bottom: 16px;
+  opacity: 0.6;
+}
+
+.empty-state h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: var(--text-sec);
+}
+
+/* =========================================
+   Learning Paths Section
+========================================= */
+.paths-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.path-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.path-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.path-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.path-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.path-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.path-desc {
+  font-size: 14px;
+  color: var(--text-sec);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.path-progress {
+  margin-bottom: 20px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-sec);
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 6px;
+  background: var(--border-light);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: width 1s ease;
+}
+
+.path-stages {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 18px;
+  overflow-x: auto;
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-sec);
+  white-space: nowrap;
+}
+
+.stage .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.stage.done .dot { background: var(--success); }
+.stage.current .dot { background: var(--accent); box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2); }
+
+.path-card .btn {
+  width: 100%;
+}
+
+/* =========================================
+   Roadmap Section
+========================================= */
+.roadmap {
+  background: linear-gradient(180deg, var(--bg), #fff);
+}
+
+.level-tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 8px;
+  border-radius: 16px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.level-tab {
+  flex: 1;
+  min-width: 120px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-sec);
+  border-radius: 12px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.level-tab:hover {
+  color: var(--primary);
+}
+
+.level-tab.active {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+}
+
+.level-content {
+  display: none;
+  animation: fadeInUp 0.5s ease;
+}
+
+.level-content.active {
+  display: block;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.level-header {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.level-badge {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.25);
+}
+
+.level-info h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.level-info p {
+  font-size: 15px;
+  color: var(--text-sec);
+  line-height: 1.8;
+  max-width: 700px;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--secondary);
+}
+
+.course-level-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--secondary);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.course-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.course-why {
+  font-size: 13.5px;
+  color: var(--text-sec);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.course-outcomes {
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.course-outcomes-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.course-outcomes ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.course-outcomes li {
+  font-size: 12px;
+  color: var(--text-sec);
+  padding: 3px 10px;
+  background: #fff;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+}
+
+.course-card .btn {
+  width: 100%;
+  font-size: 13.5px;
+  padding: 10px;
+}
+
+/* =========================================
+   Modal
+========================================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(6px);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.modal-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-overlay.show .modal {
+  transform: scale(1) translateY(0);
+}
+
+.modal-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 2;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.modal-close {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  background: var(--border);
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.modal-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.modal-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary);
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-section {
+  margin-bottom: 24px;
+}
+
+.modal-section:last-child { margin-bottom: 0; }
+
+.modal-section-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-section-title svg {
+  color: var(--primary);
+}
+
+.modal-section p {
+  font-size: 14.5px;
+  color: var(--text-sec);
+  line-height: 1.8;
+}
+
+.modal-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.modal-list li {
+  padding: 6px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.modal-guidance {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.08), rgba(249, 115, 22, 0.02));
+  border-right: 4px solid var(--accent);
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.modal-resources {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.resource-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.resource-item:hover {
+  border-color: var(--secondary);
+  background: #fff;
+  transform: translateX(-4px);
+}
+
+.resource-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.resource-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.resource-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.resource-type {
+  font-size: 12px;
+  color: var(--text-sec);
+}
+
+.modal-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.modal-footer .btn { flex: 1; }
+
+/* =========================================
+   CTA Section
+========================================= */
+.cta-section {
+  padding: 80px 0;
+}
+
+.cta-card {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: var(--radius-xl);
+  padding: 60px 40px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.2), transparent 70%);
+  border-radius: 50%;
+}
+
+.cta-card::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent 70%);
+  border-radius: 50%;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cta-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: var(--accent);
+}
+
+.cta-title {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 900;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.cta-desc {
+  font-size: clamp(15px, 2vw, 18px);
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 32px;
+  line-height: 1.8;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* =========================================
+   Footer
+========================================= */
+.footer {
+  background: var(--primary-dark);
+  color: #fff;
+  padding: 60px 0 24px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand .logo {
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.footer-brand .logo-icon {
+  background: linear-gradient(135deg, var(--secondary), var(--accent));
+}
+
+.footer-tagline {
+  font-size: 15px;
+  opacity: 0.8;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 320px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-link:hover {
+  background: var(--accent);
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.footer-col h4 {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 18px;
+  color: #fff;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  opacity: 0.75;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  color: var(--accent);
+  transform: translateX(-4px);
+}
+
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.creator-credit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.creator-credit .heart {
+  color: var(--accent);
+}
+
+/* =========================================
+   Back to Top
+========================================= */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  z-index: 90;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: var(--transition);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--primary-dark);
+  transform: translateY(-4px);
+}
+
+/* =========================================
+   Scroll Reveal
+========================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   Responsive
+========================================= */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-links,
+  .nav-actions { display: none; }
+  .hamburger { display: flex; }
+  .section { padding: 60px 0; }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+  .stat-item {
+    border-left: none;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 12px;
+  }
+  .stat-item:nth-child(odd) { border-left: 1px solid var(--border); }
+  .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 16px; }
+  .section { padding: 50px 0; }
+  .section-header { margin-bottom: 36px; }
+
+  .hero { padding: 40px 0 60px; }
+  .hero-search {
+    flex-direction: column;
+    padding: 12px;
+  }
+  .hero-search .btn { width: 100%; }
+  .search-input-wrap { padding: 8px 10px; }
+
+  .visual-card { padding: 24px 12px; }
+  .journey { gap: 4px; flex-wrap: wrap; justify-content: center; }
+  .journey::before { display: none; }
+  .journey-node { flex: 0 0 calc(33.33% - 6px); min-width: 90px; }
+  .node-circle { width: 48px; height: 48px; }
+  .node-label { font-size: 11px; }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .level-tabs {
+    flex-direction: column;
+    padding: 6px;
+  }
+  .level-tab { min-width: 0; }
+
+  .level-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+  }
+  .level-info h3 { font-size: 19px; }
+  .level-info p { font-size: 14px; }
+
+  .cta-card { padding: 40px 20px; }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal {
+    border-radius: var(--radius);
+    max-height: 95vh;
+  }
+  .modal-header,
+  .modal-body,
+  .modal-footer { padding: 18px; }
+  .modal-title { font-size: 18px; }
+
+  .back-to-top {
+    width: 44px;
+    height: 44px;
+    bottom: 16px;
+    left: 16px;
+  }
+
+  .categories-grid,
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-title { font-size: 28px; }
+  .journey-node { flex: 0 0 calc(50% - 4px); }
+  .btn-lg { padding: 14px 24px; font-size: 15px; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-sec); }
+
+/* Selection */
+::selection { background: var(--primary); color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+<header class="navbar" id="navbar">
+  <div class="container nav-wrap">
+    <a href="#home" class="logo" aria-label="بوصلة معرفة - الصفحة الرئيسية">
+      <span class="logo-icon" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+        </svg>
+      </span>
+      <span>بوصلة معرفة</span>
+    </a>
+
+    <nav class="nav-links" aria-label="القائمة الرئيسية">
+      <a href="#home" class="nav-link active">الرئيسية</a>
+      <a href="#categories" class="nav-link">أقسام المعرفة</a>
+      <a href="#roadmap" class="nav-link">المسارات التعليمية</a>
+      <a href="#about" class="nav-link">عن المنصة</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="#" class="btn btn-outline btn-sm">تسجيل الدخول</a>
+      <a href="#" class="btn btn-accent btn-sm">حساب جديد</a>
+    </div>
+
+    <button class="hamburger" id="hamburgerBtn" aria-label="فتح القائمة" aria-expanded="false">
+      <i data-lucide="menu" width="22" height="22"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-header">
+    <div class="logo">
+      <span class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+        </svg>
+      </span>
+      <span>بوصلة معرفة</span>
+    </div>
+    <button class="mobile-close" id="mobileClose" aria-label="إغلاق القائمة">
+      <i data-lucide="x" width="20" height="20"></i>
+    </button>
+  </div>
+
+  <nav class="mobile-links">
+    <a href="#home" class="mobile-link active"><i data-lucide="home" width="20" height="20"></i> الرئيسية</a>
+    <a href="#categories" class="mobile-link"><i data-lucide="layers" width="20" height="20"></i> أقسام المعرفة</a>
+    <a href="#roadmap" class="mobile-link"><i data-lucide="map" width="20" height="20"></i> المسارات التعليمية</a>
+    <a href="#about" class="mobile-link"><i data-lucide="info" width="20" height="20"></i> عن المنصة</a>
+  </nav>
+
+  <div class="mobile-actions">
+    <a href="#" class="btn btn-outline">تسجيل الدخول</a>
+    <a href="#" class="btn btn-accent">حساب جديد</a>
+  </div>
+</aside>
+
+<!-- =========================================
+     HERO
+========================================= -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>منصة تعليمية توجيهية — مجانية بالكامل</span>
+      </div>
+
+      <h1 class="hero-title">
+        طريقك المنظم نحو <span class="highlight">المعرفة</span><br/>
+        — ابدأ مسارك بدون تشتت
+      </h1>
+
+      <p class="hero-subtitle">
+        منصة توجيهية تمسك بيدك من الصفر وحتى الاحتراف عبر مسارات واضحة، مصادر موثوقة، وخطوات مرتبة تساعدك على معرفة ماذا تتعلم ومتى ولماذا.
+      </p>
+
+      <form class="hero-search" id="heroSearch" role="search" onsubmit="event.preventDefault(); scrollToSection('categories');">
+        <div class="search-input-wrap">
+          <i data-lucide="search" width="20" height="20" aria-hidden="true"></i>
+          <input type="text" id="heroSearchInput" placeholder="ابحث عن المجال أو المادة التي تريد تعلّمها..." aria-label="بحث"/>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <i data-lucide="compass" width="18" height="18"></i>
+          استكشف
+        </button>
+      </form>
+
+      <div class="hero-ctas">
+        <a href="#categories" class="btn btn-primary btn-lg">
+          <i data-lucide="map" width="18" height="18"></i>
+          استكشف مسارات المعرفة
+        </a>
+        <a href="#roadmap" class="btn btn-outline btn-lg">
+          <i data-lucide="play-circle" width="18" height="18"></i>
+          اكتشف كيف تعمل المنصة
+        </a>
+      </div>
+
+      <!-- Visual Roadmap -->
+      <div class="hero-visual reveal">
+        <div class="visual-card">
+          <div class="journey">
+            <div class="journey-node active">
+              <div class="node-circle"><i data-lucide="flag" width="22" height="22"></i></div>
+              <span class="node-label">البداية</span>
+            </div>
+            <div class="journey-node active">
+              <div class="node-circle"><i data-lucide="book-open" width="22" height="22"></i></div>
+              <span class="node-label">الأساسيات</span>
+            </div>
+            <div class="journey-node current">
+              <div class="node-circle"><i data-lucide="code" width="22" height="22"></i></div>
+              <span class="node-label">التطبيق</span>
+            </div>
+            <div class="journey-node">
+              <div class="node-circle"><i data-lucide="target" width="22" height="22"></i></div>
+              <span class="node-label">التخصص</span>
+            </div>
+            <div class="journey-node">
+              <div class="node-circle"><i data-lucide="award" width="22" height="22"></i></div>
+              <span class="node-label">الاحتراف</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+     STATS
+========================================= -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid reveal">
+      <div class="stat-item">
+        <div class="stat-number" data-count="50">+50</div>
+        <div class="stat-label">مسار تعليمي</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="300">+300</div>
+        <div class="stat-label">مصدر موثوق</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="15">+15</div>
+        <div class="stat-label">مجال معرفي</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="10">+10K</div>
+        <div class="stat-label">متعلم مستفيد</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+     WHY US
+========================================= -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">
+        <i data-lucide="sparkles" width="14" height="14"></i>
+        لماذا نحن
+      </span>
+      <h2 class="section-title">لماذا بوصلة معرفة؟</h2>
+      <p class="section-subtitle">
+        نوفر لك تجربة تعليمية منظمة تزيل الحيرة وتضعك على الطريق الصحيح منذ اللحظة الأولى.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i data-lucide="route" width="26" height="26"></i></div>
+        <h3 class="feature-title">مسارات واضحة</h3>
+        <p class="feature-desc">بدل البحث العشوائي، تعرف ماذا تتعلم أولًا وماذا بعده.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i data-lucide="shield-check" width="26" height="26"></i></div>
+        <h3 class="feature-title">مصادر موثوقة</h3>
+        <p class="feature-desc">روابط ومصادر تعليمية مختارة تساعدك على التعلم من أفضل المحتوى.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i data-lucide="focus" width="26" height="26"></i></div>
+        <h3 class="feature-title">تعلم بدون تشتت</h3>
+        <p class="feature-desc">نرتب لك الطريق حتى تركز على التعلم بدل الحيرة في اختيار المصادر.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><i data-lucide="trending-up" width="26" height="26"></i></div>
+        <h3 class="feature-title">من المبتدئ إلى المتقدم</h3>
+        <p class="feature-desc">ابدأ من الصفر وتدرج بشكل منطقي حتى تصل إلى مستوى متقدم.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+     CATEGORIES
+========================================= -->
+<section class="section" id="categories" style="padding-top: 20px;">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">
+        <i data-lucide="layers" width="14" height="14"></i>
+        الأقسام
+      </span>
+      <h2 class="section-title">استكشف أقسام المعرفة</h2>
+      <p class="section-subtitle">
+        اختر المجال الذي يناسب اهتماماتك، وابدأ رحلتك التعليمية بخطوات واضحة ومنظمة.
+      </p>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="search-filter-bar reveal">
+      <div class="search-field">
+        <i data-lucide="search" width="20" height="20"></i>
+        <input type="text" id="categorySearch" placeholder="ابحث عن مجال... (مثال: برمجة، تصميم، ذكاء اصطناعي)" aria-label="بحث في الأقسام"/>
+      </div>
+      <div class="filter-row">
+        <select class="filter-select" id="filterField" aria-label="تصفية حسب المجال">
+          <option value="">كل المجالات</option>
+          <option value="تقني">تقني</option>
+          <option value="إبداعي">إبداعي</option>
+          <option value="أعمال">أعمال</option>
+          <option value="لغوي">لغوي</option>
+          <option value="علمي">علمي</option>
+        </select>
+        <select class="filter-select" id="filterLevel" aria-label="تصفية حسب المستوى">
+          <option value="">كل المستويات</option>
+          <option value="مبتدئ">مبتدئ</option>
+          <option value="متوسط">متوسط</option>
+          <option value="متقدم">متقدم</option>
+        </select>
+        <select class="filter-select" id="filterType" aria-label="تصفية حسب نوع المحتوى">
+          <option value="">كل الأنواع</option>
+          <option value="دورات">دورات</option>
+          <option value="مسارات">مسارات</option>
+          <option value="مقالات">مقالات</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Categories Grid -->
+    <div class="categories-grid" id="categoriesGrid">
+      <!-- Will be populated by JavaScript -->
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+     LEARNING PATHS
+========================================= -->
+<section class="section" id="paths">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">
+        <i data-lucide="map" width="14" height="14"></i>
+        المسارات المميزة
+      </span>
+      <h2 class="section-title">اختر مسارك التعليمي</h2>
+      <p class="section-subtitle">
+        مسارات مُصممة بعناية تأخذك من الصفر إلى الاحتراف بخطوات واضحة ومصادر مختارة.
+      </p>
+    </div>
+
+    <div class="paths-grid">
+      <!-- Path 1 -->
+      <div class="path-card reveal">
+        <div class="path-header">
+          <div class="path-icon" style="background: linear-gradient(135deg, #3B82F6, #1E3A8A);">
+            <i data-lucide="code" width="26" height="26"></i>
+          </div>
+          <h3 class="path-title">مسار البرمجة وتطوير الويب</h3>
+        </div>
+        <p class="path-desc">
+          مسار منظم يأخذك من أساسيات البرمجة إلى بناء مشاريع احترافية وفهم تقنيات تطوير الويب الحديثة.
+        </p>
+        <div class="path-progress">
+          <div class="progress-label">
+            <span>التقدم في المسار</span>
+            <span>4 مراحل</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 65%;"></div></div>
+        </div>
+        <div class="path-stages">
+          <div class="stage done"><span class="dot"></span>مبتدئ</div>
+          <div class="stage done"><span class="dot"></span>متوسط</div>
+          <div class="stage current"><span class="dot"></span>متقدم</div>
+          <div class="stage"><span class="dot"></span>مشاريع</div>
+        </div>
+        <a href="#roadmap" class="btn btn-primary">
+          عرض المسار بالكامل
+          <i data-lucide="arrow-left" width="16" height="16"></i>
+        </a>
+      </div>
+
+      <!-- Path 2 -->
+      <div class="path-card reveal">
+        <div class="path-header">
+          <div class="path-icon" style="background: linear-gradient(135deg, #F97316, #EA580C);">
+            <i data-lucide="brain" width="26" height="26"></i>
+          </div>
+          <h3 class="path-title">مسار الذكاء الاصطناعي وتحليل البيانات</h3>
+        </div>
+        <p class="path-desc">
+          تعلّم أساسيات الذكاء الاصطناعي، تعلم الآلة، وتحليل البيانات باستخدام الأدوات الحديثة مثل Python و TensorFlow.
+        </p>
+        <div class="path-progress">
+          <div class="progress-label">
+            <span>التقدم في المسار</span>
+            <span>4 مراحل</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 45%;"></div></div>
+        </div>
+        <div class="path-stages">
+          <div class="stage done"><span class="dot"></span>مبتدئ</div>
+          <div class="stage current"><span class="dot"></span>متوسط</div>
+          <div class="stage"><span class="dot"></span>متقدم</div>
+          <div class="stage"><span class="dot"></span>تخصص</div>
+        </div>
+        <a href="#roadmap" class="btn btn-primary">
+          عرض المسار بالكامل
+          <i data-lucide="arrow-left" width="16" height="16"></i>
+        </a>
+      </div>
+
+      <!-- Path 3 -->
+      <div class="path-card reveal">
+        <div class="path-header">
+          <div class="path-icon" style="background: linear-gradient(135deg, #10B981, #059669);">
+            <i data-lucide="palette" width="26" height="26"></i>
+          </div>
+          <h3 class="path-title">مسار التصميم والعمل الحر</h3>
+        </div>
+        <p class="path-desc">
+          من أساسيات التصميم الجرافيكي إلى بناء بورتفوليو احترافي والانطلاق في عالم العمل الحر عبر منصات عالمية.
+        </p>
+        <div class="path-progress">
+          <div class="progress-label">
+            <span>التقدم في المسار</span>
+            <span>4 مراحل</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+        </div>
+        <div class="path-stages">
+          <div class="stage done"><span class="dot"></span>مبتدئ</div>
+          <div class="stage done"><span class="dot"></span>متوسط</div>
+          <div class="stage done"><span class="dot"></span>متقدم</div>
+          <div class="stage current"><span class="dot"></span>عمل حر</div>
+        </div>
+        <a href="#roadmap" class="btn btn-primary">
+          عرض المسار بالكامل
+          <i data-lucide="arrow-left" width="16" height="16"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+     ROADMAP / INTERACTIVE LEVELS
+========================================= -->
+<section class="section roadmap" id="roadmap">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-badge">
+        <i data-lucide="git-branch" width="14" height="14"></i>
+        خارطة الطريق
+      </span>
+      <h2 class="section-title">المسار التعليمي التفاعلي</h2>
+      <p class="section-subtitle">
+        اختر مستواك الحالي، واكتشف ما يجب أن تتعلمه الآن، وما هي الخطوة التالية.
+      </p>
+    </div>
+
+    <!-- Level Tabs -->
+    <div class="level-tabs reveal" role="tablist">
+      <button class="level-tab active" data-level="beginner" role="tab" aria-selected="true">
+        <i data-lucide="sprout" width="16" height="16"></i>
+        مبتدئ
+      </button>
+      <button class="level-tab" data-level="intermediate" role="tab" aria-selected="false">
+        <i data-lucide="trending-up" width="16" height="16"></i>
+        متوسط
+      </button>
+      <button class="level-tab" data-level="advanced" role="tab" aria-selected="false">
+        <i data-lucide="zap" width="16" height="16"></i>
+        متقدم
+      </button>
+    </div>
+
+    <!-- Level Contents -->
+    <div id="levelContents">
+      <!-- Beginner -->
+      <div class="level-content active" data-level="beginner">
+        <div class="level-header">
+          <div class="level-badge">
+            <i data-lucide="sprout" width="32" height="32"></i>
+          </div>
+          <div class="level-info">
+            <h3>المستوى الأول: مبتدئ</h3>
+            <p>هنا تبني الأساس. ركز على فهم المفاهيم الأساسية ولا تستعجل الانتقال للمواضيع المتقدمة قبل إتقان الأساسيات.</p>
+          </div>
+        </div>
+        <div class="courses-grid" id="beginnerCourses"></div>
+      </div>
+
+      <!-- Intermediate -->
+      <div class="level-content" data-level="intermediate">
+        <div class="level-header">
+          <div class="level-badge" style="background: linear-gradient(135deg, #F97316, #EA580C);">
+            <i data-lucide="trending-up" width="32" height="32"></i>
+          </div>
+          <div class="level-info">
+            <h3>المستوى الثاني: متوسط</h3>
+            <p>بعد بناء الأساس، ابدأ بتطبيق ما تعلمته من خلال المشاريع وفهم الأدوات والتقنيات المستخدمة في المجال.</p>
+          </div>
+        </div>
+        <div class="courses-grid" id="intermediateCourses"></div>
+      </div>
+
+      <!-- Advanced -->
+      <div class="level-content" data-level="advanced">
+        <div class="level-header">
+          <div class="level-badge" style="background: linear-gradient(135deg, #10B981, #059669);">
+            <i data-lucide="zap" width="32" height="32"></i>
+          </div>
+          <div class="level-info">
+            <h3>المستوى الثالث: متقدم</h3>
+            <p>هنا تنتقل من التعلم إلى الاحتراف، وتبدأ في بناء مشاريع أكبر وفهم المفاهيم المتقدمة والاستعداد لسوق العمل.</p>
+          </div>
+        </div>
+        <div class="courses-grid" id="advancedCourses"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+     CTA SECTION
+========================================= -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div class="cta-content">
+        <div class="cta-icon">
+          <i data-lucide="compass" width="32" height="32"></i>
+        </div>
+        <h2 class="cta-title">لا تعرف من أين تبدأ؟</h2>
+        <p class="cta-desc">
+          اختر المجال الذي تريد تعلمه، ودع بوصلة معرفة ترسم لك الطريق خطوة بخطوة.
+        </p>
+        <div class="cta-buttons">
+          <a href="#categories" class="btn btn-accent btn-lg">
+            <i data-lucide="rocket" width="18" height="18"></i>
+            ابدأ رحلتك الآن
+          </a>
+          <a href="#roadmap" class="btn btn-ghost btn-lg">
+            <i data-lucide="map" width="18" height="18"></i>
+            استعرض المسارات
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+            </svg>
+          </span>
+          <span>بوصلة معرفة</span>
+        </div>
+        <p class="footer-tagline">تعلّم بوضوح، وتقدم بثقة. منصة توجيهية تساعدك على اكتشاف ما تتعلمه، ومتى، ومن أين.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="تويتر"><i data-lucide="twitter" width="18" height="18"></i></a>
+          <a href="#" class="social-link" aria-label="فيسبوك"><i data-lucide="facebook" width="18" height="18"></i></a>
+          <a href="#" class="social-link" aria-label="يوتيوب"><i data-lucide="youtube" width="18" height="18"></i></a>
+          <a href="#" class="social-link" aria-label="انستقرام"><i data-lucide="instagram" width="18" height="18"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>روابط سريعة</h4>
+        <div class="footer-links">
+          <a href="#home">الرئيسية</a>
+          <a href="#categories">أقسام المعرفة</a>
+          <a href="#paths">المسارات التعليمية</a>
+          <a href="#about">عن المنصة</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>الأقسام</h4>
+        <div class="footer-links">
+          <a href="#categories">البرمجة والتكنولوجيا</a>
+          <a href="#categories">الذكاء الاصطناعي</a>
+          <a href="#categories">التصميم والإبداع</a>
+          <a href="#categories">اللغات والترجمة</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>تواصل معنا</h4>
+        <div class="footer-links">
+          <a href="#">الأسئلة الشائعة</a>
+          <a href="#">الدعم الفني</a>
+          <a href="#">اقتراح مسار</a>
+          <a href="#">انضم كمساهم</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 بوصلة معرفة — جميع الحقوق محفوظة</div>
+      <div class="creator-credit">
+        صُنع بـ <span class="heart">♥</span> بواسطة <strong>محمود رجب</strong>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="العودة للأعلى">
+  <i data-lucide="arrow-up" width="20" height="20"></i>
+</button>
+
+<!-- =========================================
+     MODAL
+========================================= -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div>
+        <h3 class="modal-title" id="modalTitle">عنوان الدورة</h3>
+        <div class="modal-meta" id="modalMeta"></div>
+      </div>
+      <button class="modal-close" id="modalClose" aria-label="إغلاق">
+        <i data-lucide="x" width="20" height="20"></i>
+      </button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer">
+      <a href="#" class="btn btn-primary" id="modalStartBtn" target="_blank" rel="noopener">
+        <i data-lucide="play-circle" width="18" height="18"></i>
+        ابدأ التعلم
+      </a>
+      <button class="btn btn-outline" id="modalCloseBtn">إغلاق</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================================
+   DATA
+========================================= */
+const categories = [
+  { id: 1, name: 'البرمجة والتكنولوجيا', desc: 'تعلم لغات البرمجة، تطوير الويب، والتطبيقات من الصفر حتى الاحتراف.', icon: 'code', color: '#3B82F6', paths: 8, field: 'تقني', level: 'مبتدئ', type: 'مسارات' },
+  { id: 2, name: 'الذكاء الاصطناعي', desc: 'أساسيات تعلم الآلة، الشبكات العصبية، وتطبيقات الذكاء الاصطناعي الحديثة.', icon: 'brain', color: '#F97316', paths: 6, field: 'تقني', level: 'متوسط', type: 'مسارات' },
+  { id: 3, name: 'اللغات والترجمة', desc: 'تعلم اللغات الأجنبية بأساليب فعالة واحترف الترجمة المهنية.', icon: 'languages', color: '#10B981', paths: 5, field: 'لغوي', level: 'مبتدئ', type: 'دورات' },
+  { id: 4, name: 'التصميم والإبداع', desc: 'التصميم الجرافيكي، UI/UX، الموشن جرافيك، والفنون الرقمية.', icon: 'palette', color: '#EC4899', paths: 7, field: 'إبداعي', level: 'مبتدئ', type: 'مسارات' },
+  { id: 5, name: 'العمل الحر وريادة الأعمال', desc: 'كيف تبدأ مشروعك الخاص، تبني بورتفوليو، وتعمل مع عملاء عالميين.', icon: 'briefcase', color: '#8B5CF6', paths: 4, field: 'أعمال', level: 'متوسط', type: 'دورات' },
+  { id: 6, name: 'العلوم والرياضيات', desc: 'الفيزياء، الكيمياء، الأحياء، والرياضيات بأسلوب مبسط وتطبيقي.', icon: 'atom', color: '#06B6D4', paths: 6, field: 'علمي', level: 'مبتدئ', type: 'مسارات' },
+  { id: 7, name: 'التسويق وصناعة المحتوى', desc: 'التسويق الرقمي، صناعة المحتوى، السوشيال ميديا، وبناء العلامة الشخصية.', icon: 'megaphone', color: '#F59E0B', paths: 5, field: 'أعمال', level: 'مبتدئ', type: 'دورات' },
+  { id: 8, name: 'المهارات الشخصية', desc: 'التواصل، القيادة، إدارة الوقت، التفكير النقدي، وتطوير الذات.', icon: 'user-check', color: '#14B8A6', paths: 4, field: 'أعمال', level: 'مبتدئ', type: 'مقالات' },
+  { id: 9, name: 'إدارة الأعمال', desc: 'الإدارة الاستراتيجية، الموارد البشرية، المحاسبة، ودراسات الجدوى.', icon: 'building-2', color: '#6366F1', paths: 5, field: 'أعمال', level: 'متوسط', type: 'مسارات' },
+  { id: 10, name: 'الأمن السيبراني', desc: 'حماية الأنظمة، اختبار الاختراق، الأمن المعلوماتي، والتشفير.', icon: 'shield', color: '#EF4444', paths: 4, field: 'تقني', level: 'متقدم', type: 'مسارات' },
+  { id: 11, name: 'تحليل البيانات', desc: 'تعلم تحليل البيانات، SQL، Excel المتقدم، وأدوات Business Intelligence.', icon: 'bar-chart-3', color: '#0EA5E9', paths: 5, field: 'تقني', level: 'متوسط', type: 'مسارات' },
+  { id: 12, name: 'الهندسة والتقنية', desc: 'الهندسة الكهربائية، الميكانيكية، والمدنية بأسلوب عملي وتطبيقي.', icon: 'wrench', color: '#78716C', paths: 4, field: 'علمي', level: 'متقدم', type: 'دورات' }
+];
+
+const courses = {
+  beginner: [
+    {
+      id: 'b1',
+      title: 'أساسيات البرمجة',
+      level: 'مبتدئ',
+      duration: '4 أسابيع',
+      why: 'هذه الخطوة تساعدك على فهم طريقة التفكير البرمجية والمفاهيم التي ستحتاجها في أي لغة برمجة لاحقًا.',
+      outcomes: ['المتغيرات', 'الشروط', 'الحلقات', 'الدوال', 'التفكير المنطقي'],
+      mainSource: { name: 'كورس CS50 - هارفارد', type: 'دورة مجانية', url: 'https://cs50.harvard.edu/x/' },
+      resources: [
+        { name: 'منصة حسوب - مقدمة في البرمجة', type: 'مقالات', url: '#' },
+        { name: 'قناة Elzero Web School', type: 'يوتيوب', url: '#' }
+      ],
+      guidance: 'لا تنتقل للخطوة التالية قبل أن تتمكن من تطبيق المفاهيم الأساسية بنفسك.',
+      url: 'https://cs50.harvard.edu/x/'
+    },
+    {
+      id: 'b2',
+      title: 'أساسيات HTML و CSS',
+      level: 'مبتدئ',
+      duration: '3 أسابيع',
+      why: 'لبناء أي موقع ويب تحتاج إلى فهم هاتين اللغتين أولًا، وهما حجر الأساس في تطوير الويب.',
+      outcomes: ['بناء صفحات', 'التنسيق', 'التخطيط Flexbox', 'Grid', 'التجاوب'],
+      mainSource: { name: 'freeCodeCamp - Responsive Web Design', type: 'شهادة مجانية', url: 'https://www.freecodecamp.org/' },
+      resources: [
+        { name: 'MDN Web Docs', type: 'توثيق رسمي', url: 'https://developer.mozilla.org/' },
+        { name: 'قناة Osama Elzero', type: 'يوتيوب', url: '#' }
+      ],
+      guidance: 'طبّق ما تتعلمه بمشاريع صغيرة فورًا، مثل صفحة شخصية أو موقع بسيط.',
+      url: 'https://www.freecodecamp.org/'
+    },
+    {
+      id: 'b3',
+      title: 'مقدمة في الذكاء الاصطناعي',
+      level: 'مبتدئ',
+      duration: '3 أسابيع',
+      why: 'فهم أساسيات الذكاء الاصطناعي يساعدك على اتخاذ قرار صحيح حول التخصص فيه لاحقًا.',
+      outcomes: ['مفاهيم AI', 'تعلم الآلة', 'الشبكات العصبية', 'التطبيقات'],
+      mainSource: { name: 'AI For Everyone - Andrew Ng', type: 'كورس Coursera', url: 'https://www.coursera.org/learn/ai-for-everyone' },
+      resources: [
+        { name: 'قناة 3Blue1Brown - Neural Networks', type: 'يوتيوب', url: '#' },
+        { name: 'منصة رواق - مقدمة في الذكاء الاصطناعي', type: 'دورة عربية', url: '#' }
+      ],
+      guidance: 'لا تحتاج خلفية برمجية قوية في البداية، ركز على الفهم المفاهيمي أولًا.',
+      url: 'https://www.coursera.org/learn/ai-for-everyone'
+    },
+    {
+      id: 'b4',
+      title: 'أساسيات التصميم الجرافيكي',
+      level: 'مبتدئ',
+      duration: '4 أسابيع',
+      why: 'التصميم الجرافيكي هو بوابة عالم الإبداع البصري، ويؤهلك لدخول مجالات UI/UX والبراندنج.',
+      outcomes: ['نظرية الألوان', 'الخطوط', 'التكوين', 'مبادئ التصميم'],
+      mainSource: { name: 'Graphic Design Basics - Canva Design School', type: 'دورة مجانية', url: 'https://www.canva.com/designschool/' },
+      resources: [
+        { name: 'قناة The Futu - أساسيات التصميم', type: 'يوتيوب', url: '#' },
+        { name: 'منصة مهارة - التصميم للمبتدئين', type: 'دورة عربية', url: '#' }
+      ],
+      guidance: 'شاهد أعمال مصممين محترفين يوميًا على Behance و Dribbble لبناء ذوقك البصري.',
+      url: 'https://www.canva.com/designschool/'
+    }
+  ],
+  intermediate: [
+    {
+      id: 'i1',
+      title: 'تطوير الواجهات الأمامية - React',
+      level: 'متوسط',
+      duration: '6 أسابيع',
+      why: 'React هي المكتبة الأكثر طلبًا في سوق العمل، وإتقانها يفتح لك أبواب فرص كثيرة.',
+      outcomes: ['Components', 'State & Props', 'Hooks', 'Routing', 'API Integration'],
+      mainSource: { name: 'React Official Documentation', type: 'توثيق رسمي', url: 'https://react.dev/' },
+      resources: [
+        { name: 'Full Stack Open - جامعة هلسنكي', type: 'كورس مجاني', url: 'https://fullstackopen.com/' },
+        { name: 'قناة Codezilla - React بالعربي', type: 'يوتيوب', url: '#' }
+      ],
+      guidance: 'ابنِ 3 مشاريع حقيقية على الأقل قبل الانتقال للمرحلة المتقدمة.',
+      url: 'https://react.dev/'
+    },
+    {
+      id: 'i2',
+      title: 'تعلم الآلة التطبيقي',
+      level: 'متوسط',
+      duration: '8 أسابيع',
+      why: 'تعلم الآلة هو العمود الفقري للذكاء الاصطناعي الحديث، وإتقانه يفتح مجالات متعددة.',
+      outcomes: ['Python للـ ML', 'Scikit-learn', 'النماذج', 'التقييم', 'المشاريع'],
+      mainSource: { name: 'Machine Learning Specialization - Coursera', type: 'تخصص', url: 'https://www.coursera.org/specializations/machine-learning-introduction' },
+      resources: [
+        { name: 'Kaggle Learn', type: 'دروس تفاعلية', url: 'https://www.kaggle.com/learn' },
+        { name: 'قناة StatQuest', type: 'يوتيوب', url: '#' }
+      ],
+      guidance: 'شارك في مسابقات Kaggle لتطبيق ما تعلمته على بيانات حقيقية.',
+      url: 'https://www.coursera.org/specializations/machine-learning-introduction'
+    },
+    {
+      id: 'i3',
+      title: 'تحليل البيانات باستخدام Python',
+      level: 'متوسط',
+      duration: '5 أسابيع',
+      why: 'تحليل البيانات من أكثر المهارات طلبًا في سوق العمل، و Python هي الأداة الأقوى فيه.',
+      outcomes: ['Pandas', 'NumPy', 'Matplotlib', 'تحليل البيانات', 'التصور'],
+      mainSource: { name: 'Data Analysis with Python - freeCodeCamp', type: 'شهادة', url: 'https://www.freecodecamp.org/learn/data-analysis-with-python/' },
+      resources: [
+        { name: 'Kaggle - Pandas Course', type: 'تفاعلي', url: '#' },
+        { name: 'قناة Data School', type: 'يوتيوب', url: '#' }
+      ],
+      guidance: 'حلل datasets من Kaggle أسبوعيًا، وشارك تحليلاتك على GitHub.',
+      url: 'https://www.freecodecamp.org/learn/data-analysis-with-python/'
+    },
+    {
+      id: 'i4',
+      title: 'تصميم UI/UX الاحترافي',
+      level: 'متوسط',
+      duration: '6 أسابيع',
+      why: 'تصميم تجربة المستخدم مهارة مطلوبة جدًا، وتمزج بين الإبداع والتحليل.',
+      outcomes: ['Figma', 'User Research', 'Wireframing', 'Prototyping', 'Design Systems'],
+      mainSource: { name: 'Google UX Design Certificate', type: 'شهادة Coursera', url: 'https://www.coursera.org/professional-certificates/google-ux-design' },
+      resources: [
+        { name: 'Laws of UX', type: 'مراجع تصميم', url: 'https://lawsofux.com/' },
+        { name: 'قناة DesignCourse', type: 'يوتيوب', url: '#' }
+      ],
+      guidance: 'أعد تصميم 5 تطبيقات مشهورة لتحسين ذوقك وفهمك للقرارات التصميمية.',
+      url: 'https://www.coursera.org/professional-certificates/google-ux-design'
+    }
+  ],
+  advanced: [
+    {
+      id: 'a1',
+      title: 'هندسة البرمجيات المتقدمة',
+      level: 'متقدم',
+      duration: '10 أسابيع',
+      why: 'الانتقال من مبرمج إلى مهندس برمجيات يتطلب فهم الأنظمة الكبيرة ومبادئ التصميم.',
+      outcomes: ['System Design', 'Clean Architecture', 'Microservices', 'Testing', 'CI/CD'],
+      mainSource: { name: 'System Design Primer - GitHub', type: 'مرجع شامل', url: 'https://github.com/donnemartin/system-design-primer' },
+      resources: [
+        { name: 'كتاب Clean Code - Robert Martin', type: 'كتاب', url: '#' },
+        { name: 'قناة Hussein Nasser - Backend', type: 'يوتيوب', url: '#' }
+      ],
+      guidance: 'اقرأ كود مشاريع مفتوحة المصدر كبيرة مثل Linux أو React لفهم البنى الاحترافية.',
+      url: 'https://github.com/donnemartin/system-design-primer'
+    },
+    {
+      id: 'a2',
+      title: 'تعلم العميق - Deep Learning',
+      level: 'متقدم',
+      duration: '12 أسبوع',
+      why: 'تعلم العميق هو أساس أحدث تقنيات الذكاء الاصطناعي مثل GPT و Computer Vision.',
+      outcomes: ['Neural Networks', 'CNN', 'RNN', 'Transformers', 'TensorFlow/PyTorch'],
+      mainSource: { name: 'Deep Learning Specialization - Andrew Ng', type: 'تخصص Coursera', url: 'https://www.coursera.org/specializations/deep-learning' },
+      resources: [
+        { name: 'Fast.ai - Practical Deep Learning', type: 'كورس مجاني', url: 'https://www.fast.ai/' },
+        { name: 'كتاب Deep Learning - Goodfellow', type: 'كتاب', url: '#' }
+      ],
+      guidance: 'نفذ ورقة بحثية واحدة شهريًا من الصفر لتعميق فهمك النظري والتطبيقي.',
+      url: 'https://www.coursera.org/specializations/deep-learning'
+    },
+    {
+      id: 'a3',
+      title: 'الأمن السيبراني المتقدم',
+      level: 'متقدم',
+      duration: '10 أسابيع',
+      why: 'الأمن السيبراني من أعلى المجالات طلبًا وأجرًا، ويتطلب خبرة تقنية عميقة.',
+      outcomes: ['Penetration Testing', 'Network Security', 'Cryptography', 'OWASP', 'Bug Bounty'],
+      mainSource: { name: 'Offensive Security - PEN-200', type: 'شهادة OSCP', url: 'https://www.offsec.com/' },
+      resources: [
+        { name: 'TryHackMe - مسارات متقدمة', type: 'منصة تفاعلية', url: 'https://tryhackme.com/' },
+        { name: 'Hack The Box', type: 'تحديات عملية', url: 'https://www.hackthebox.com/' }
+      ],
+      guidance: 'شارك في برامج Bug Bounty الحقيقية لاكتساب خبرة عملية ودخل إضافي.',
+      url: 'https://www.offsec.com/'
+    },
+    {
+      id: 'a4',
+      title: 'بناء المنتجات الرقمية',
+      level: 'متقدم',
+      duration: '8 أسابيع',
+      why: 'القدرة على بناء منتج رقمي كامل من الفكرة إلى الإطلاق مهارة نادرة ومطلوبة.',
+      outcomes: ['Product Thinking', 'MVP', 'Growth', 'Analytics', 'Monetization'],
+      mainSource: { name: 'Product School - FREE Resources', type: 'مصادر مجانية', url: 'https://www.productschool.com/' },
+      resources: [
+        { name: 'كتاب Inspired - Marty Cagan', type: 'كتاب', url: '#' },
+        { name: 'قناة Lenny\'s Podcast', type: 'بودكاست', url: '#' }
+      ],
+      guidance: 'ابنِ منتجًا حقيقيًا وأطلقه للعالم، حتى لو كان بسيطًا — التجربة لا تُقدّر بثمن.',
+      url: 'https://www.productschool.com/'
+    }
+  ]
+};
+
+/* =========================================
+   RENDER CATEGORIES
+========================================= */
+const categoriesGrid = document.getElementById('categoriesGrid');
+
+function renderCategories(list) {
+  if (list.length === 0) {
+    categoriesGrid.innerHTML = `
+      <div class="empty-state">
+        <i data-lucide="search-x" width="48" height="48"></i>
+        <h3>لم نجد نتائج مطابقة</h3>
+        <p>جرّب البحث بكلمة أخرى أو اختر مجالًا مختلفًا.</p>
+      </div>
+    `;
+    if (window.lucide) lucide.createIcons();
+    return;
+  }
+
+  categoriesGrid.innerHTML = list.map(cat => `
+    <article class="category-card" data-field="${cat.field}" data-level="${cat.level}" data-type="${cat.type}" data-name="${cat.name}">
+      <div class="category-icon" style="background: linear-gradient(135deg, ${cat.color}, ${cat.color}dd);">
+        <i data-lucide="${cat.icon}" width="24" height="24"></i>
+      </div>
+      <h3 class="category-name">${cat.name}</h3>
+      <p class="category-desc">${cat.desc}</p>
+      <div class="category-meta">
+        <div class="category-paths">
+          <i data-lucide="route" width="14" height="14"></i>
+          <strong>${cat.paths}</strong> مسار تعليمي
+        </div>
+        <span style="font-size: 12px; color: var(--text-sec); font-weight: 600;">${cat.level}</span>
+      </div>
+      <a href="#roadmap" class="btn btn-outline btn-sm">
+        استكشف المسار
+        <i data-lucide="arrow-left" width="14" height="14"></i>
+      </a>
+    </article>
+  `).join('');
+
+  if (window.lucide) lucide.createIcons();
+}
+
+renderCategories(categories);
+
+/* =========================================
+   SEARCH & FILTER
+========================================= */
+const categorySearch = document.getElementById('categorySearch');
+const filterField = document.getElementById('filterField');
+const filterLevel = document.getElementById('filterLevel');
+const filterType = document.getElementById('filterType');
+
+function applyFilters() {
+  const q = categorySearch.value.trim().toLowerCase();
+  const f = filterField.value;
+  const l = filterLevel.value;
+  const t = filterType.value;
+
+  const filtered = categories.filter(c => {
+    const matchQ = !q || c.name.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q);
+    const matchF = !f || c.field === f;
+    const matchL = !l || c.level === l;
+    const matchT = !t || c.type === t;
+    return matchQ && matchF && matchL && matchT;
+  });
+
+  renderCategories(filtered);
+}
+
+categorySearch.addEventListener('input', applyFilters);
+filterField.addEventListener('change', applyFilters);
+filterLevel.addEventListener('change', applyFilters);
+filterType.addEventListener('change', applyFilters);
+
+// Sync hero search with category search
+const heroSearchInput = document.getElementById('heroSearchInput');
+heroSearchInput.addEventListener('input', (e) => {
+  categorySearch.value = e.target.value;
+  applyFilters();
+});
+
+/* =========================================
+   RENDER COURSES
+========================================= */
+function renderCourses(containerId, courseList) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = courseList.map(c => `
+    <article class="course-card" data-course-id="${c.id}" tabindex="0" role="button" aria-label="عرض تفاصيل ${c.title}">
+      <span class="course-level-tag">${c.level} • ${c.duration}</span>
+      <h3 class="course-title">${c.title}</h3>
+      <p class="course-why"><strong>لماذا هذه الدورة؟</strong> ${c.why}</p>
+      <div class="course-outcomes">
+        <div class="course-outcomes-title">
+          <i data-lucide="check-circle-2" width="14" height="14"></i>
+          ماذا ستتعلم؟
+        </div>
+        <ul>
+          ${c.outcomes.map(o => `<li>${o}</li>`).join('')}
+        </ul>
+      </div>
+      <button class="btn btn-primary btn-sm" type="button">
+        ابدأ التعلم
+        <i data-lucide="arrow-left" width="14" height="14"></i>
+      </button>
+    </article>
+  `).join('');
+
+  if (window.lucide) lucide.createIcons();
+
+  // Attach click handlers
+  container.querySelectorAll('.course-card').forEach(card => {
+    const handler = () => openCourseModal(card.dataset.courseId);
+    card.addEventListener('click', handler);
+    card.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handler();
+      }
+    });
+  });
+}
+
+renderCourses('beginnerCourses', courses.beginner);
+renderCourses('intermediateCourses', courses.intermediate);
+renderCourses('advancedCourses', courses.advanced);
+
+/* =========================================
+   LEVEL TABS
+========================================= */
+const levelTabs = document.querySelectorAll('.level-tab');
+const levelContents = document.querySelectorAll('.level-content');
+
+levelTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const level = tab.dataset.level;
+    levelTabs.forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+
+    levelContents.forEach(c => c.classList.remove('active'));
+    document.querySelector(`.level-content[data-level="${level}"]`).classList.add('active');
+  });
+});
+
+/* =========================================
+   MODAL
+========================================= */
+const modalOverlay = document.getElementById('modalOverlay');
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modalTitle');
+const modalMeta = document.getElementById('modalMeta');
+const modalBody = document.getElementById('modalBody');
+const modalStartBtn = document.getElementById('modalStartBtn');
+const modalClose = document.getElementById('modalClose');
+const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+function findCourse(id) {
+  const all = [...courses.beginner, ...courses.intermediate, ...courses.advanced];
+  return all.find(c => c.id === id);
+}
+
+function openCourseModal(id) {
+  const course = findCourse(id);
+  if (!course) return;
+
+  modalTitle.textContent = course.title;
+  modalMeta.innerHTML = `
+    <span class="modal-tag"><i data-lucide="signal" width="12" height="12"></i> ${course.level}</span>
+    <span class="modal-tag"><i data-lucide="clock" width="12" height="12"></i> ${course.duration}</span>
+  `;
+
+  modalBody.innerHTML = `
+    <div class="modal-section">
+      <h4 class="modal-section-title">
+        <i data-lucide="help-circle" width="18" height="18"></i>
+        لماذا هذه الدورة مهمة؟
+      </h4>
+      <p>${course.why}</p>
+    </div>
+
+    <div class="modal-section">
+      <h4 class="modal-section-title">
+        <i data-lucide="target" width="18" height="18"></i>
+        ماذا ستتعلم؟
+      </h4>
+      <div class="modal-list">
+        ${course.outcomes.map(o => `<li>${o}</li>`).join('')}
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h4 class="modal-section-title">
+        <i data-lucide="book-marked" width="18" height="18"></i>
+        المصدر الرئيسي
+      </h4>
+      <a href="${course.mainSource.url}" target="_blank" rel="noopener" class="resource-item">
+        <div class="resource-icon"><i data-lucide="external-link" width="18" height="18"></i></div>
+        <div class="resource-info">
+          <div class="resource-name">${course.mainSource.name}</div>
+          <div class="resource-type">${course.mainSource.type}</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="modal-section">
+      <h4 class="modal-section-title">
+        <i data-lucide="library" width="18" height="18"></i>
+        مصادر تقوية إضافية
+      </h4>
+      <div class="modal-resources">
+        ${course.resources.map(r => `
+          <a href="${r.url}" target="_blank" rel="noopener" class="resource-item">
+            <div class="resource-icon"><i data-lucide="link-2" width="18" height="18"></i></div>
+            <div class="resource-info">
+              <div class="resource-name">${r.name}</div>
+              <div class="resource-type">${r.type}</div>
+            </div>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <h4 class="modal-section-title">
+        <i data-lucide="lightbulb" width="18" height="18"></i>
+        ملاحظة توجيهية
+      </h4>
+      <div class="modal-guidance">${course.guidance}</div>
+    </div>
+  `;
+
+  modalStartBtn.href = course.url;
+  if (window.lucide) lucide.createIcons();
+
+  modalOverlay.classList.add('show');
+  modalOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  modalClose.focus();
+}
+
+function closeModal() {
+  modalOverlay.classList.remove('show');
+  modalOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+modalClose.addEventListener('click', closeModal);
+modalCloseBtn.addEventListener('click', closeModal);
+modalOverlay.addEventListener('click', (e) => {
+  if (e.target === modalOverlay) closeModal();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modalOverlay.classList.contains('show')) closeModal();
+});
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+const menuOverlay = document.getElementById('menuOverlay');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+function openMobileMenu() {
+  mobileMenu.classList.add('open');
+  menuOverlay.classList.add('show');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  hamburgerBtn.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  menuOverlay.classList.remove('show');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  hamburgerBtn.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+hamburgerBtn.addEventListener('click', openMobileMenu);
+mobileClose.addEventListener('click', closeMobileMenu);
+menuOverlay.addEventListener('click', closeMobileMenu);
+mobileLinks.forEach(link => link.addEventListener('click', closeMobileMenu));
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMobileMenu();
+});
+
+/* =========================================
+   NAVBAR SCROLL & ACTIVE STATE
+========================================= */
+const navbar = document.getElementById('navbar');
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section[id]');
+
+window.addEventListener('scroll', () => {
+  // Navbar shadow
+  if (window.scrollY > 10) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+
+  // Active link
+  let current = '';
+  sections.forEach(sec => {
+    const top = sec.offsetTop - 120;
+    if (window.scrollY >= top) current = sec.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+
+  // Back to top
+  if (window.scrollY > 500) backToTop.classList.add('show');
+  else backToTop.classList.remove('show');
+});
+
+/* =========================================
+   BACK TO TOP
+========================================= */
+const backToTop = document.getElementById('backToTop');
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* =========================================
+   HELPER: Scroll to section
+========================================= */
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* =========================================
+   INITIALIZE LUCIDE
+========================================= */
+if (window.lucide) lucide.createIcons();
+
+/* =========================================
+   COUNTER ANIMATION
+========================================= */
+const counters = document.querySelectorAll('.stat-number');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.count);
+      const suffix = el.textContent.replace(/[0-9]/g, '');
+      let current = 0;
+      const step = Math.max(1, Math.ceil(target / 40));
+      const interval = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          current = target;
+          clearInterval(interval);
+        }
+        el.textContent = '+' + current + suffix.replace('+', '');
+      }, 30);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+counters.forEach(c => counterObserver.observe(c));
+</script>
+
+</body>
+</html>
